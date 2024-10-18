@@ -4,9 +4,7 @@ This is a basic implementation of a prometheus exporter designed for exporting m
 
 ## Docker Image
 
-```
-eithan1231/immich:latest
-```
+`eithan1231/immich:latest`
 
 ## Setup - Docker Compose
 
@@ -33,10 +31,14 @@ services:
       IMMICH_KEY:
 ```
 
-## Setup - Prometheus
-
-coming soon
-
 ## Setup - Grafana
 
-coming soon
+### Dashbard.json
+
+Import the following json dashboard to you Grafana dashboards.
+
+`/grafana/dashboard.json`
+
+### Screenshot
+
+![Grafana Screenshot](./grafana/picture.png)

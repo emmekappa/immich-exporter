@@ -148,16 +148,9 @@ const main = async () => {
     }
   });
 
-  const server = app.listen(3000, () => {
+  app.listen(3000, () => {
     console.log("[main] listening on port 3000");
   });
-
-  const shutdown = async () => {
-    clearInterval(interval);
-    server.close();
-  };
-
-  process.once("SIGINT", shutdown);
 };
 
 main();
