@@ -102,3 +102,36 @@ export const getImmichServerVersionHistory =
 
     return await response.json();
   };
+
+export interface ImmichJobCounts {
+  active: number;
+  completed: number;
+  failed: number;
+  delayed: number;
+  waiting: number;
+  paused: number;
+}
+
+export interface ImmichQueueStatus {
+  isActive: boolean;
+  isPaused: boolean;
+}
+
+export interface ImmichJobQueue {
+  jobCounts: ImmichJobCounts;
+  queueStatus: ImmichQueueStatus;
+}
+
+export interface ImmichJobs {
+  [queueName: string]: ImmichJobQueue;
+}
+
+export const getImmichJobs = async (): Promise<ImmichJobs> => {
+  const url = getImmichUrl("/api/jobs");
+
+  const response = await fetch(url, {
+    headers: { ...getImmichHeaders() },
+  });
+
+  return await response.json();
+};
