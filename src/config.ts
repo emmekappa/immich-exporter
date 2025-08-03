@@ -3,7 +3,8 @@ import { z } from "zod";
 export const ConfigurationOptionsSchema = z.object({
   IMMICH_HOST: z.string(),
   IMMICH_KEY: z.string(),
-  POLL_FREQUENCY: z.coerce.number().default(15),
+  POLL_FREQUENCY: z.coerce.number().default(15), // in seconds
+  PORT: z.coerce.number().default(3000), // server port
 });
 
 export type ConfigurationOptionsSchemaType = z.infer<

@@ -4,7 +4,7 @@ This is a basic implementation of a prometheus exporter designed for exporting m
 
 ## Docker Image
 
-`eithan1231/immich:latest`
+`emmekappa/immich-exporter:latest`
 
 ## Setup - Docker Compose
 
@@ -14,7 +14,7 @@ The recommended setup is with Docker compose.
 services:
   immich-exporter:
     container_name: immich_exporter
-    image: eithan1231/immich-exporter
+    image: emmekappa/immich-exporter
     restart: always
     ports:
       - 3000:3000
@@ -29,6 +29,12 @@ services:
       # This key is generated from your user-dashbaord. Navigate to `/user-settings` and there is a
       # "API Keys" section. Generate a key and place it here.
       IMMICH_KEY:
+
+      # Polling interval in seconds    
+      POLL_FREQUENCY: 15 
+
+      # Port on which the exporter will listen (default: 3000)
+      PORT: 3000
 ```
 
 ## Setup - Grafana
